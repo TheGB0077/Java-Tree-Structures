@@ -19,9 +19,10 @@ public class Program {
 		System.out.println("Buscando 30: " + bst.search(30));
 		System.out.println("Minimo: " + bst.min());
 		System.out.println("Máximo: " + bst.max());
-		bst.delete(20);
+		bst.delete(35);
 		System.out.println(bst);
-		System.out.println(bst.min());
+		System.out.println(bst.getDepth(90));
+
 	}
 
 }

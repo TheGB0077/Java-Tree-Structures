@@ -33,6 +33,16 @@ public class BinarySearchTree {
 		}
 	}
 
+	public int getDepth(Comparable info) {
+		BSTNode node = search(info);
+		int depth = 0;
+		while (node != root) {
+			node = node.getParent();
+			depth++;
+		}
+		return depth;
+	}
+
 	public void addRecusive(Comparable info) {
 		this.root = insert(root, info);
 	}
