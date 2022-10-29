@@ -13,15 +13,18 @@ public class Program {
 		bst.addRecusive(90);
 		bst.addRecusive(30);
 		bst.addRecusive(180);
+		bst.addRecusive(85);
 		bst.addRecusive(5);
 		
 		System.out.println(bst);
 		System.out.println("Buscando 30: " + bst.search(30));
 		System.out.println("Minimo: " + bst.min());
 		System.out.println("Máximo: " + bst.max());
-		bst.delete(35);
+		bst.delete(80);
+		bst.search(30);
+		bst.min();
 		System.out.println(bst);
-		System.out.println(bst.getDepth(90));
+		System.out.println("Profundidade: " + bst.getDepth(90));
 
 	}
 

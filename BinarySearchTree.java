@@ -44,20 +44,41 @@ public class BinarySearchTree {
 	}
 
 	public void addRecusive(Comparable info) {
-		this.root = insert(root, info);
+		this.root = insert(root, info, null);
 	}
 
-	public BSTNode insert(BSTNode node, Comparable info) {
+	public BSTNode insert(BSTNode node, Comparable info, BSTNode parent) {
 		if (node == null) {
+
 			node = new BSTNode(info);
+			node.setParent(parent);
 			return node;
 		}
 		else if (node.getInfo().compareTo(info) > 0 ) {
-			node.setLeft(insert(node.getLeft(), info)) ;
+			node.setLeft(insert(node.getLeft(), info, node)) ;
 		} else  if (node.getInfo().compareTo(info) < 0 ) {
-			node.setRight(insert(node.getRight(), info));
+			node.setRight(insert(node.getRight(), info, node));
 		}
 		return node;
+	}
+
+	public BSTNode findParent(Comparable info) {
+		BSTNode rt = root;
+		while (rt != null ) {
+			int comp = info.compareTo(rt.getInfo());
+			if (comp > 0 && (rt.getRight() == null)) {
+				return rt;
+			} else if (comp > 0 ) {
+				rt = rt.getRight();
+			}
+
+			if (comp < 0 && (rt.getLeft() == null)) {
+				return rt;
+			} else if (comp < 0) {
+				rt = rt.getLeft();
+			}
+		}
+		return null;
 	}
 
 	public BSTNode search(Comparable info) {
