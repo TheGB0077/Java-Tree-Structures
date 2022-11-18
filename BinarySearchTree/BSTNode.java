@@ -1,5 +1,3 @@
-package BSearchTree;
-
 public class BSTNode {
 	private Comparable info;
 	private BSTNode parent, left, right;
